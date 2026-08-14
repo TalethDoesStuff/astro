@@ -10,14 +10,14 @@ class Rock(VisualNode):
         self,
         update_list: list,
         draw_list: list,
-        positon: Vector2,
+        position: Vector2,
         scale: Vector2,
         rotation: float,
         velocity: Vector2,
         screen: pygame.Surface,
     ):
-        super().__init__(update_list, draw_list, positon, scale, rotation)
-        self.positon = positon
+        super().__init__(update_list, draw_list, position, scale, rotation)
+        self.position = position
         self.scale = scale
         self.velocity = velocity
         self.screen = screen
@@ -26,15 +26,15 @@ class Rock(VisualNode):
         )
 
     def update(self, delta):
-        self.positon += self.velocity * delta
-        if self.positon.x > self.screen.get_width():
-            self.positon.x = 0
-        if self.positon.x < 0:
-            self.positon.x = self.screen.get_width()
-        if self.positon.y > self.screen.get_height():
-            self.positon.y = 0
-        if self.positon.y < 0:
-            self.positon.y = self.screen.get_height()
+        self.position += self.velocity * delta
+        if self.position.x > self.screen.get_width():
+            self.position.x = 0
+        if self.position.x < 0:
+            self.position.x = self.screen.get_width()
+        if self.position.y > self.screen.get_height():
+            self.position.y = 0
+        if self.position.y < 0:
+            self.position.y = self.screen.get_height()
 
     def draw(self, screen: pygame.Surface):
         self.sprite = pygame.transform.scale(
@@ -44,4 +44,4 @@ class Rock(VisualNode):
                 self.sprite.get_height() * self.scale.y,
             ),
         )
-        screen.blit(self.sprite, self.positon)
+        screen.blit(self.sprite, self.position)

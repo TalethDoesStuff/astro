@@ -36,7 +36,7 @@ def main():
     player = Player(
         update_list=update_list,
         draw_list=draw_list,
-        positon=screen_center(screen),
+        position=screen_center(screen),
         scale=Vector2(1, 1),
         rotation=0,
         screen=screen,
@@ -46,7 +46,7 @@ def main():
         rock = Rock(
             update_list=update_list,
             draw_list=draw_list,
-            positon=Vector2(0, 1),
+            position=Vector2(0, 1),
             scale=Vector2(1, 1),
             velocity=Vector2(random.random() * 100, random.random() * 100),
             rotation=1,
